@@ -104,13 +104,13 @@ async function fetchAppointments() {
         col.className = 'col-md-6 col-lg-4';
 
         col.innerHTML = `
-            <div class="card shadow-sm h-100">
+            <div class="card h-100 shadow-sm">
                 <div class="card-body">
-                    <h5 class="card-title">${app.student_name} (${app.student_id})</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">${app.email}</h6>
-                    <p class="card-text"><strong>Purpose:</strong> ${app.purpose}</p>
-                    <p class="card-text"><strong>Date:</strong> ${new Date(app.preferred_date).toLocaleString()}</p>
-                    ${app.attachment ? `<p><a href="${app.attachment}" target="_blank">View Attachment</a></p>` : ''}
+                    <h5 class="card-title"><i class="bi bi-person-circle"></i> ${app.student_name} (${app.student_id})</h5>
+                    <p class="card-subtitle mb-2 text-muted"><i class="bi bi-envelope"></i> ${app.email}</p>
+                    <p class="card-text"><i class="bi bi-chat-dots"></i> ${app.purpose}</p>
+                    <p class="card-text"><i class="bi bi-calendar-event"></i> ${new Date(app.preferred_date).toLocaleString()}</p>
+                    ${app.attachment ? `<p><i class="bi bi-paperclip"></i> <a href="${app.attachment}" target="_blank">View File</a></p>` : ''}
                     <span class="badge ${
                         app.status === 'Approved' ? 'bg-success' :
                         app.status === 'Declined' ? 'bg-danger' : 'bg-warning text-dark'
@@ -122,3 +122,4 @@ async function fetchAppointments() {
         container.appendChild(col);
     });
 }
+

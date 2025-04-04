@@ -19,7 +19,7 @@
 # def post_list(request):
 #     return render(request, 'posts/index.html')
 
-from rest_framework import viewsets
+from rest_framework import viewsets, parsers, permissions
 from django.shortcuts import render
 from .models import Appointment
 from .serializers import AppointmentSerializer
@@ -27,6 +27,8 @@ from .serializers import AppointmentSerializer
 class AppointmentViewSet(viewsets.ModelViewSet):
     queryset = Appointment.objects.all().order_by('-preferred_date')
     serializer_class = AppointmentSerializer
+    parser_classes = [parsers.MultiPartParser, parsers.FormParser]
+    permission_classes = [permissions.AllowAny] 
 
 def appointment_form(request):
     return render(request, 'posts/index.html')
