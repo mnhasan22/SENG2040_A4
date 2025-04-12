@@ -62,7 +62,7 @@
 </html>
  -->
 
- {% load static %}
+ <!-- {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,6 +134,72 @@
 
         <h2 class="section-title mt-5 mb-3"><i class="bi bi-list-task"></i> Appointment Requests</h2>
         <div id="appointments" class="row g-3"></div>
+    </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Services Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            background-image: url('/static/images/background.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .sidebar {
+            width: 220px;
+            background-color: #111;
+            color: white;
+            height: 100vh;
+            padding-top: 20px;
+            position: fixed;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .main-content {
+            margin-left: 240px;
+            padding: 20px;
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body style="background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            min-height: 100vh; 
+            color: rgb(24, 21, 21);">
+    <div class="sidebar">
+        <a href="/"><i class="fas fa-home"></i> Home</a>
+        <a href="/services/"><i class="fas fa-concierge-bell"></i> Services</a>
+        <a href="/admin/"><i class="fas fa-user-shield"></i> Administration</a>
+        <a href="/forum/"><i class="fas fa-comments"></i> Forum</a>
+        <a href="/contact/"><i class="fas fa-envelope"></i> Contact</a>
+        <a href="/gallery/"><i class="fas fa-photo-video"></i> Media</a>
+    </div>
+
+    <div class="main-content">
+        {% if request.path == '/' %}
+        <h1>Welcome to the Student Services Portal</h1>
+        <!-- <p>This is the main landing page.</p> -->
+        {% endif %}
+        {% block content %}{% endblock %}
     </div>
 </body>
 </html>

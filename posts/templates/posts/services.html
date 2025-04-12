@@ -1,0 +1,54 @@
+
+{% extends 'posts/index.html' %}
+{% block content %}
+<div class="container mt-5 d-flex justify-content-center">
+    <form method="POST" enctype="multipart/form-data"
+        style="background: rgba(255,255,255,0.9); padding: 30px; border-radius: 15px; width: 100%; max-width: 600px;">
+        {% csrf_token %}
+        <h2 class="mb-4 text-dark"><i class="fas fa-calendar-plus"></i> Book an Appointment</h2>
+
+        <div class="mb-3">
+            <label class="form-label"><i class="fas fa-user"></i> Student Name</label>
+            <input type="text" class="form-control" name="name" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label"><i class="fas fa-id-card"></i> Student ID</label>
+            <input type="text" class="form-control" name="student_id" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label"><i class="fas fa-envelope"></i> Email</label>
+            <input type="email" class="form-control" name="email" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label"><i class="fas fa-qrcode"></i> Select Service</label>
+            <select name="service" class="form-control" required>
+                <option disabled selected>-- Select Service --</option>
+                <option>Mental Health Service</option>
+                <option>Transport Service</option>
+                <option>Administrative Service</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label"><i class="fas fa-comment-dots"></i> Purpose</label>
+            <textarea class="form-control" name="purpose" rows="3" required></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label"><i class="fas fa-clock"></i> Preferred Date & Time</label>
+            <input type="datetime-local" class="form-control" name="date" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label"><i class="fas fa-paperclip"></i> Attachment (Optional)</label>
+            <input type="file" class="form-control" name="attachment">
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100"><i class="fas fa-paper-plane"></i> Submit</button>
+    </form>
+</div>
+{% endblock %}
+
